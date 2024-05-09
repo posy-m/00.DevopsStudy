@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  let a = "철수";
+function name() {
+  //지역 스코프
+  function name2(){
+    console.log(a);
+  }
+  name2();
+}
+name();
+//name -> 내 스코프에서 a를 찾아야지 -> name에서 a를 찾고 -> 전역에서 찾는다. > 전역에서 조차 없으면 레퍼런스 에러를 발생 시킨다.
+
+
+function name2() {
+  let c = 0;
+  c = 1
+  return c
+}
+// 함수의 실행식을 변수에 할당하면?
+//undefined를 기본으로 반환한다.
+let b = name2();
+console.log(b);
+
+// 실습 함수를 호출하면 키위 음료수를 받았습니다.
+function kiwi (c) {
+  c = "키위"
+  console.log( c + "음료수를 받았습니다.");
+}
+kiwi();
+
+// 심화 함수를 호출할때 내가 전달한 인자로 음료수의 종류를 받는 거
+
+function bora(haha) {
+  console.log( haha + "음료수 받았습니다.");
+}
+bora("키위")
+
+
+// 심화 함수를 실행하면 받환받은 결과로 console.log(여기에 함수를 실행해서) 결과 도출
+function banana(){
+  let a ="바나나"
+  return a + "음료수"
+}
+console.log(banana());
+
+
+//
+// function cup(drink) {
+//   console.log(`컵에 ${drink}를 따라서 먹으니 기분이 쪼아!`)
+// }
+// cup("복숭아티")
+
+//
+function cup(drink) {
+  return `컵에 ${drink}를 따라서 먹으니 기분이 쪼아!`;
+}
+console.log("","","");
+//
+function vending(money, unit = null, text=null) {
+  //거스름돈
+  // console.log(`${unit}짜리 ${money / unit}개`)
+  //money = 1000
+  //unit = null
+  //text=null
+  console.log(vending.length)
+  if (unit === null) {
+    console.log(`${money}원을 넣었다.`)
+  }else if ((unit !== null) && (text === null)){
+    console.log(`${unit}짜리 ${money / unit}개`)
+  }else if (text !== null){
+    console.log(`${unit}짜리 ${money / unit}개 ${text}`)
+  }
+}
+
+//지폐를 넣고 1000원짜리 500원 단위로 거슬러줘
+vending(1000);
+vending(1000, 500);
+vending(1000, 100, "기분이 좋아"); // 인자르 사용해서 넣은 거
+//함수에는 length라는 키와 값이 존재한다.
+//매개변수를 몇개 받을 수 있는 함수인지?
+console.log(vending.length);
+console.log("12345678".length);
+//.은 객체에 접근할때 사용됨
+
+//실습 두 수를 인자로 받아서 더해주는 함수를 만들자.
+function num (num1, num2) {
+  console.log (`${num1} + ${num2} =${num1+num2}`);
+}
+  num(50, 80);
+
+
+//심화 달한 인자(인덱스)로 성격을 3가지만 골라서 보여주는 내용
+//분노조절 잘한다. 상냥하다. 조용하다.
+function character (gone) {
+  switch (gone) {
+    case 0 :
+      return "분노조절장애"
+      case 1 :
+      return "상냥함"
+      case 2 :
+      return "조용함"
+      
+  }
+}
+// character(2)
+console.log(character(0));
+
+
+// 콜백 함수
+function hello(fn) {
+  let a = "js";
+  console.log(fn(a));
+}
+
+function print(name) {
+  return 10 + name;
+}
+hello(print);
+
+//
+console.log(function() {return 1});
+
+//콜백함수를 만들고 매개변수를 2개 받아서
+//콜백함수에 매개변수 더할 숫자 2개 선언.
+//두 함수를 호출해서 나는 함수를 잘 쓰고 싶어 오늘 복습하고 질문하고 블로그 정리해야겠다, 두숫자를 받아서 더하는 값을 하나 보여주기.
+
+//매개변수는 함수에 사용될 이름을 지정
+
+function callback(no1, no2) {
+  console.log(no1());
+  console.log(no2(100, 400));
+}
+function blog(no1){
+  return "두 함수를 호출해서 나는 함수를 잘 쓰고 싶어 오늘 복습하고 질문하고 블로그 정리해야겠다";
+}
+function num3(no2, no3) {
+  return no2+no3;
+}
+callback(blog, num3);
+
+
+</script>
+</html>

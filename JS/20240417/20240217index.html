@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <span></span>
+    <h2 id='header'>
+        <ul class="border">
+            <li>
+                <span>인덱스</span>
+                <span>제목</span>
+                <span>내용</span>
+            </li>
+        </ul>
+    </h2>
+    <label for="">제목</label>
+    <input type="text" id="title_input" />
+    <label for="">글 내용</label>
+    <!-- 글의 내용 줄내림이 필요한 내용을 작성할때 -->
+    <textarea name="" id="content_input" cols="30" rows="10"></textarea>
+    <button id="btn" onclick="postContent()">글 작성</button>
+</body>
+<script>
+    console.log(header.innerHTML);
+    header.innerHTML += "<div>안녕하세요</div>";
+    console.log(header.childNodes);
+    let el = document.createElement("div");
+    el.innerHTML = "노드 생성"
+    header.append(el);
+    // 데이터베이스의 내용을 받아서 
+    // DTO : 데이터를 우리가 사용할 형태로 변경해서 받아온다.
+    let arr = [{ index: 1, title: "제목1", content: "내용1" }, { index: 2, title: "제목2", content: "내용2" }]
+    // 로그인 게시판 === 50%
+    function createContent(index, title, content) {
+        let _li = document.createElement("li");
+        let _span01 = document.createElement("span");
+        let _span02 = document.createElement("span");
+        let _span03 = document.createElement("span");
+        _span01.innerHTML = index;
+        _span02.innerHTML = title;
+        _span03.innerHTML = content;
+        _li.append(_span01);
+        _li.append(_span02);
+        _li.append(_span03);
+        // li[0 : _span01, 1 : _span02, 2 : _span03]
+        // li span span span
+        document.querySelector(".border").append(_li);
+    }
+    function render() {
+        document.querySelector(".border").innerHTML = `
+            <li>
+                <span>인덱스</span>
+                <span>제목</span>
+                <span>내용</span>
+            </li>
+        `;
+        for (let i = 0; i < arr.length; i++) {
+            createContent(arr[i].index, arr[i].title, arr[i].content);
+        }
+    }
+
+    render();
+
+    function postContent() {
+        let _title = title_input.value;
+        let _content = content_input.value;
+        const content = {
+            index: arr.length + 1,
+            title: _title,
+            content: _content,
+        }
+        arr.push(content);
+        render();
+    }
+
+    // 간단한 실습 랜덤한 숫자를 6개 뽑아서 화면에 보여주자. 각각의 el
+
+</script>
+
+</html>

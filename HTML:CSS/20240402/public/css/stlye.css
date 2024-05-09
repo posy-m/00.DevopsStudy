@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ul도 스타일을 주고 li도 스타일을 각각 준다. */
+ul, li {
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 20px;
+    background-color: rgb(213, 211, 211);
+    color: gray;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+    background-color: blanchedalmond;
+    color: black;
+}
+
+.box {
+    width: 500px;
+    overflow: hidden;
+    height: 0px;
+    background-color: pink;
+}
+
+#tab1:checked ~ .con1 {
+  height: 500px;
+  transition: 0.8s;
+
+}
+
+#tab2:checked ~ .con2 {
+  height: 500px;
+  transition: 0.8s;
+}
+
+#tab3:checked ~ .con3 {
+  height: 500px;
+  transition: 0.8s;
+}

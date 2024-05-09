@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #section > #title-wrap {
+      margin-top : 100px;
+      width: 1000px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #section > #title-wrap > .header-title {
+      width: 45%;
+      height: 30px;
+      padding-left: 20px;
+      
+    }
+
+    #section > #content-header {
+      width: 1000px;
+      /* height: 30px ; */
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      border: 1px solid;
+      border-radius: 3px;
+      flex-wrap: wrap;
+    }
+
+    #section > #title-wrap > .title-button {
+      width: 60px;
+    }
+
+    .line {
+      position: relative;
+    }
+
+    .line::after { 
+      content: "";
+      position: absolute;
+      right: 0;
+      height: 18px;
+      width: 1px;
+      background-color: black;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .box {
+      width: 30%;
+      padding-left: 140px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .no {
+      width: 5%;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+
+    }
+    #ccomment {
+      width : 1000px;
+      height: 500px;
+      background-color: rgb(217, 206, 228);
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="section">
+    <div id="title-wrap">
+      <input type="text" placeholder="제목" class="header-title" id="title1">
+      <input type="text" placeholder="내용" class="header-title" id="content1">
+      <button id="header-Btn" class="title-button" onclick="handler()">전송</button>
+    </div>
+    <div id="content-header">
+      <span class="line no">no</span>
+      <span class="line box">제목</span>
+      <span class="box">내용</span>
+    </div>
+  </div>
+</body>
+<script src="./index2.js"></script>
+</html>

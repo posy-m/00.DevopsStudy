@@ -1,0 +1,422 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 모바일 사이즈 스타일 */
+#wrap {
+  width: 100%;
+  /* height: 100vh; */
+  overflow: hidden;
+}
+
+#wrap > #header >.gnb {
+  width: 100%;
+  height: 8vw;
+  background-color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gnb .gnb-button {
+  display: block;
+  width: 8vw;
+  height: 8vw;
+  position: relative;
+}
+
+.gnb  .gnb-button span {
+  position: absolute;
+  display: block;
+  width: 2.667vw;
+  height: 0.533vw;
+  border-radius: 0.4vw;
+  left: 2.667vw;
+  top: 2.667vw;
+  background-color: white;
+}
+
+/* 자식 요소중에 몇번째 요소인지 1 부터 첫번째 요소 선택*/
+/* 연산식을 할 수 없는 css를 읽었들때 calc을 사용하면값을 보여줌 */
+.gnb .gnb-button span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  /* display: block;
+  width: 1.333vw;
+  height: 1.333vw;
+  background-color: red; */
+}
+
+
+/* top와 bottom은 같이 수치를 주면 안됨. 둘중 하나만 값을 넣어줘야함 */
+.gnb .gnb-button span:nth-child(3) {
+  top: auto;
+  bottom: 2.667vw;
+}
+
+.gnb .user-icon {
+  display: block;
+  width: 8vw;
+  height: 8vw;
+  /* background-image: url(../image/icon.jpeg);
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat; */
+  /* 반복을 안하겠다는 의미 */
+  position: relative;
+}
+
+.gnb .user-icon span:nth-child(1) {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  border: 1.2vw solid white;
+  border-radius: 50%;
+  top: 1.333vw;
+}
+
+.gnb .user-icon span:nth-child(2) {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  top: 3.467vw;
+  border: 1.333vw solid white;
+  border-radius: 6.667vw 6.667vw 0 0;
+}
+
+.gnb .logo {
+  color: white;
+  font-weight: 800;
+}
+
+#header > .notification {
+  width: 100%; 
+  height: 6vw;
+  display: flex;
+  align-items: center;
+  padding: 0 1.067vw;
+  font-size: 1.6vw;
+}
+
+#header > .notification > i {
+  border: 1.067vw solid blue;
+  border-radius : 50%;
+  margin-right: 1.333vw;
+}
+
+#wrap > #content {
+  width: 100%;
+  min-height: calc(100% - 16vw);
+  background-color: rgb(203, 203, 203);
+}
+
+#content > .title {
+  width: 100%;
+  height: 8.667vw;
+  border-top: 0.133vw solid gray;
+  border-bottom: 0.133vw solid gray;
+  background-color: white;
+  font-size: 2.133vw;
+  font-weight: 800;
+  padding: 0 1.067vw;
+  display: flex;
+  align-items: center;
+}
+
+#content > .nav-wrap .nav {
+  width: 100%;
+  height: 6vw;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  background-color: white; 
+  padding: 0 1.067vw;
+}
+
+#content > .nav-wrap {
+  position: relative;
+}
+
+.nav-wrap > .nav li {
+  display: block;
+  padding: 0.8vw 1.067vw;
+  font-size: 1.867vw;
+  font-weight: 800;
+}
+
+.nav-wrap > .nav li.active {
+  color: red;
+}
+
+.nav-wrap > button {
+  width: 8vw;
+  height: 5.333vw;
+  border-radius: 0.8vw;
+  border: 0;
+  position: absolute;
+  top: 0.333vw;
+  right: 1.067vw;
+  background-color: rgb(193, 193, 193);
+}
+
+.nav-wrap > button::after,
+.nav-wrap > button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 1.333vw;
+  border: 0.267vw solid white;
+}
+
+.nav-wrap > button::after {
+  left: calc(50% - 0.667vw);
+  border-radius: 0.267vw;
+  transform: translate(-50%, -50%) rotate(35deg);
+}
+
+.nav-wrap > button::before {
+  left: calc(50% + 0.667vw);
+  border-radius: 0.267vw;
+  transform: translate(-50%, -50%) rotate(-35deg);
+}
+
+#content > .card-wrap {
+  padding: 1.6vw 0.8vw;
+}
+
+#content > .card-wrap> .card {
+  width: 46.4vw;
+  height: 34.667vw;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 2.667vw;
+}
+
+.card-wrap > .card {
+  width: 46.4vw;
+  height: 34.667vw;
+  display: flex;  
+  flex-direction: column;
+  background-color: white;
+}
+
+.card-wrap > .card>img {
+  width: 100%;
+}
+
+.card-wrap > .card > div {
+  width: 100%;
+  height: 9.333vw;
+}
+
+.card > div > h3 {
+  font-size: 1.6vw;
+  width: 46.4vw;
+  box-sizing: border-box;
+  height: 50%;
+  display: flex;
+  padding: 0 1.067vw;
+  align-items: center;
+  border-bottom: 0.133vw solid rgb(191, 191, 191);
+  position: relative;
+}
+
+.card > div > h3::after {
+  content : "NEW";
+  color: white;
+  display: block;
+  padding: 0.267vw 0.667vw;
+  /* width: 8vw;
+  height: 5.333vw; */
+  background-color: red;
+  position: absolute;
+  left: 11.733vw;
+}
+
+.card > div > div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.067vw;
+  box-sizing: border-box;
+  font-size: 1.6vw;
+}
+
+.paging {
+  width: 100%;
+  /* height: 8.667vw; */
+  background-color: rgb(203, 203, 203);
+  padding: 2.667vw 0;
+}
+
+.paging > ul {
+  width: 80%;
+  height: 5.333vw;
+  margin: 0 auto;
+  background-color: rgb(203, 203, 203);
+  list-style: none;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.paging > ul > li {
+  width: 4vw;
+  height: 4vw;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.133vw solid rgb(168, 168, 168);
+  border-radius: 0.8vw;
+}
+
+.paging > ul > .active  {
+  background-color: #444;
+  color: white;
+}
+
+.paging > ul > .next {
+  background-image: url(https://www.dbcut.com/theme/dbcut/img/btn_next.gif);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.paging > ul > .end {
+  background-image : url(https://www.dbcut.com/theme/dbcut/img/btn_end.gif);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+/* 
+https://www.dbcut.com/theme/dbcut/img/btn_next.gif
+https://www.dbcut.com/theme/dbcut/img/btn_end.gif
+*/
+
+.serch  {
+  width: 100%;
+  height: 5.333vw;
+  background-color: white;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.serch > select {
+  width: 13.333vw;
+  height: 5.333vw;
+  border: 0;
+}
+
+.serch input {
+  width: 29.333vw; 
+  height: 3.733vw;
+  padding: 0.4vw 0.8vw;
+  border: 0;
+  margin: 0;
+}
+
+.search  > div {
+  width: 5.333vw;
+  height: 5.333vw;
+  display: flex;  
+  justify-content: center;  
+  align-items: center;
+}
+
+.serch > img {
+  width: 2vw;
+}
+
+.state {
+  width: 100%;
+  padding: 1.333vw 1.067vw;
+}
+
+.state > span {
+  background-color: rgb(89, 89, 230);
+  width: 13.333vw;
+  height: 4vw;
+  display: flex;
+  border-radius: 2.133vw;
+  justify-content: center;  
+  align-items: center;
+  color: white;
+  font-size: 1.6vw;
+  font-weight: 800;
+}
+
+.state > .states-content {
+  width: 43.733vw;
+  background-color: white;
+  margin: 1.333vw auto;
+  padding: 0.533vw 0.8vw;
+}
+
+.state > .states-content > div  {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6vw;
+}
+
+#wrap > #footer {
+  width: 100%;
+  background-color: rgb(59, 59, 59);
+  padding-bottom: 2.667vw;
+}
+
+#footer > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6vw 3.2vw;
+}
+
+#footer > div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: gray;
+}
+
+#footer > button {
+  width: 43.733vw;
+  margin: 0 auto;
+  margin-top: 2.667vw;
+  display: block;
+  font-size: 1.867vw;
+  height: 5.333vw;
+  background-color: gray;
+  border: 0;
+  border-radius: 0.533vw;
+  color: rgb(192, 192, 192);
+}
+
+#footer > div > span {
+  font-size: 1.867vw;
+  font-weight: 800;
+  color: white;
+
+}
+
+/* 모바일의 사이즈 이상으로 넘어가면 */
+@media screen and (min-width : 768px) {
+
+}
+
+/* 테블릿 사이즈 이상으로 넘어가면 */
+@media screen and (min-width : 992px) {
+
+}
+
+/* 데스크 탑 사이즈 이상으로 넘어가면 */
+@media screen and (min-width : 1024px) {
+
+}

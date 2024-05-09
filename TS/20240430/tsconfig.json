@@ -1,0 +1,9 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "removeComments": true, //주석으로 변환 안할거냐? 
+    "target": "ES6"
+
+  }
+}

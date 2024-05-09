@@ -1,0 +1,15 @@
+{
+  // 와일드 카드
+  // css * 할때 사용함
+  // /* 을 쓰게 되면 모든 파일을 포함한다.
+  // /** : 모든 폴더를 포함시키겠다.
+  // scr폴더에 모든 폴더들에서 모든 파일을 포함 시키겠다.
+  // **/.test.ts : 현재 폴더에서 모든 폴더의 파일중에서 확장자로 . test.ts라고 작성된 파일을 컴파일에서 제외시키겠다.
+  "include" : ["src/**/*"],
+  "exclude": ["**/*.test.ts"],
+  "compilerOptions": {
+    "target": "ES6",
+    "outDir": "./dist", // dsitribution의 약자 _ 배포하다.  정하는 이름
+    "removeComments": true, // 주석을 제거해서 변환하겠다.
+  }
+}

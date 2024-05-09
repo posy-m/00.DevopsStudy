@@ -1,0 +1,26 @@
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid purple;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+background: #aaa;
+color: #000;
+}
+
+/* .box {
+  background: #aaa;
+  margin: 0 auto;
+  display: none;
+}
+
+input[id="mo1"]:checked ~ .no1 {
+  display: block ;
+} */
+

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  //let, var, const
+  // const a = 10;
+
+  // console.log(1===1); //true
+  // console.log(2===1); //false
+  // console.log("1" === 1); //false
+
+  //부정문
+  // console.log(!true); // false
+  // console.log(!false); //true
+
+  //크기를 비교하는 비교 연산자
+  //크기가 미만 초과
+  // 작은수 < 큰수 : true
+  // 큰수 > 작은수  :true
+
+  //크기가 이하 이상
+  //3 <= 3 : true
+  //4 <= 3 : false
+
+  //상수 2를 num이라는 변수명으로 
+  //상수 3을 unm2이라는 변수명으로
+
+  const num = 3;
+  const num2 = 3;
+
+  //2 < 3 
+  console.log(num > num2);
+  //3<=3
+  console.log(num >= num2);
+
+  //num3 num4 의 변수를 선언하고
+  //num3에는 20을 할당 num4에는 30을 할당하고 
+  // < 크기 비교 연산자를 사용해서 true가 출력 되게
+
+  let num3 = 20;
+  let num4 = 30;
+
+  console.log(num3<num4); //true
+  console.log(num4>num3); //true
+
+  // const num5 = 20;
+  // const num6 = 30;
+
+  // console.log(num5<num6);
+
+  // 논리 연산자
+  
+  // || OR 둘중에 하나라도 teue면 true
+  // true || ture  : true
+  // true || false " true
+  // false || true : true
+  //false || false : false
+
+  console.log((2 === 3) || (2===2)); // false || true = true
+
+  console.log((2 !== 2) || (1 > 2)); // false || false = false
+
+  //&& AND 둘다 true여야 true를 반환
+  //true && true : true
+  //true && false : false
+  //false && false : false
+
+  console.log((2 < 3) && (2 > 1));
+  console.log((2 < 3) && !(2 > 1)); //true && false = false 
+
+  //변수를 num5, num6, num7, num8 변수를 선언하고
+  //num5에는 10을 할당
+  //num6에는 10을 할당 
+  //num7에는 20을 할당
+  //num8을 30을 할당
+
+  //num5 num6을 비교 연산자로 비교한다.
+  //num7 num8을 비교 연사자로 비교한다.
+
+  //논리 연산자로
+  //OR 연산자로 true를 반환하고
+  //AND 연산자로 true를 반환하세요
+
+  //변수명은 어떤 작업에 사용중인 변수로 명칭을 지정해야한다.
+
+  let num5 = 10;
+  let num6 = 10;
+  let num7 = 20;
+  let num8 = 30;
+
+  console.log((num5 <= num6) || (num7 < num8));
+  console.log((num5 <=num6) && (num7 < num8));
+
+  //조건문을 나가기 전에 선행으로 좀
+
+  //input output
+  //브라우저의 모달을 활용
+  //
+  //window
+  //alert 모달을 창을 띄어준다.
+  //alert("비밀번호를 입력하세요");
+  // alert 브라우저에서 알림 메시지 용도로 사용
+
+  // prompt 모달창에서 입력값을 변수에 할당 가능하다.
+  // prompt ("입력할 내용의 설명", "초기값");
+
+  // let input1 = prompt("입력할 내용의 설명");
+  // console.log(input1);
+
+  // input2를 선언하고 이름을 입력 받는 input 모달을 만들어 보세요 
+  //출력까지
+
+  // let input2 = prompt("비밀번호를 입력해주세용")
+  // console.log(input2);
+
+  //조건문
+
+  //스코프
+  //지역변수 : 전역에 선언한 변수
+  //전역변수 : 해당 영역에서 선언하고 사용될 변수
+
+  // 블록 스코프, 함수 스코프, 렉시컬 스코프
+
+  let input3; // 전역은 어디서든 접근이 가능한 변수
+  {
+    // 여기는 지역
+    // 재선언이 x
+    // 지역변수
+    let input3;
+    //지역 에서 선언한 변수
+    //지역 변수
+    //블록 스포프 안에서 선언한 변수는 블록 스코프 안에서만 있다가
+    //동작이 끝나면 해제된다.
+    let input4 = 1;
+  }
+  {
+    // console.log(input4);
+  }
+  console.log(input3);
+  // console.log(input4);
+
+let age = prompt ("나이를 입력하세요.")
+
+  //조건문
+  if(age < 20) {
+    //스코프가 코드 내용이 실행되는 조건을 작성할 수 있다.
+    alert("나는 미성년자야 ")
+  }
+  alert("나는 전역에서 실행되요.")
+
+  //변수로 성별을 받고 남자 여자
+  // if 조건문엔 남자면 남자입니다. alert으로 출력해보자
+
+
+  let gender = prompt ("성별을 입력하세요 ex) 남자 여자")
+
+//[if문]([조건문]){[실행코드]}
+  if(gender === "남자") {
+    alert("남자입니다.")
+  } else if (gender === "여자") {
+    alert("여자입니다.")
+  }
+  else {
+    //위의 조건이 모두 다 아니고 실핼 될 내용
+    alert("성별을 제대로 입력 해주세요.")
+  }
+
+  //조건이 충족되는 스코프만 출력된다.
+  //if안에 if믄 쓸 수 있지만, 2개까지만 쓰기를 권장
+
+  //변수를 선언 하고 점수 입력값을 할당받고
+  //점수가 90~100점이면 a를 출력하고
+  //점수가 80~90점 미만이면 b를 출력하고 
+  //점수가 70~80점 미만이면 c를 출력하고
+  //점수가 70점 미만에는 d를 출력합니다.
+
+  let test = prompt ("점수를 입력하세요 ex)숫자만 입력해주세요")
+
+  if(test>=90 && test<=100) {
+    alert("테스트입니다.")
+  } else if (test>=80) {
+    alert("B")
+  } else if (test>=70) {
+    alert("C")
+  }  else if (test<70) {
+    alert("D")
+  } 
+
+  //가위바위보 
+  //1. 컴퓨터가 값을 우리가 입력해주고
+  //2. 플레이어가 값을 입력 (가위, 바위, 보 )
+  //3. 조건문을 작성
+  //4. 플레이어의 값이 가위면 -> 이기는 조건은 컴퓨터가 보를 내거나 -> 무승부는 가위 -> 지는 조건 바위
+  //5. 플레이어의 값이 바위면 -> 이기는 조건은 가위 -> 무승부 바위 -> 지는 조건 보
+  //6. 플레이어의 값이 보 -> 이기는  조건은 바위 -> 무승부 보-> 지는 조건가위
+
+  //구현을 목표로 하고 -> 클린코드
+
+  // if 조건문으로 작성
+
+  //
+  //if (me === computer) {
+    //    alert("무승부")
+    //} else if (me !== computer) {
+      //
+      //  }
+      
+  let me = prompt ("나")
+  let computer =prompt ("computer")
+
+
+//첫번째 방법
+if(computer === "바위") {
+  if(me === "바위") {
+    alert("비김")
+  }
+  if(me === "가위") {
+    alert("패배")
+  }
+  if(me === "보") {
+    alert("이김")
+  }
+} else if(computer === "가위") {
+  if(me === "바위") {
+    alert("이김")
+  }
+  if(me === "가위") {
+    alert("비김")
+  }
+  if(me === "보") {
+    alert("짐")
+  }
+} else if(computer === "보") {
+  if(me === "바위") {
+    alert("짐")
+  }
+  if(me === "가위") {
+    alert("이김")
+  }
+  if(me === "보") {
+    alert("비김")
+  }
+} else {
+  alert ("잘못 입력함")
+}
+
+
+
+
+// 두번째 방법
+if((computer === "바위" && me === "바위") || (computer === "가위" && me === "가위") || (computer === "보" && me === "보")) {
+  alert("비김")
+} else if 
+  ((computer === "보" && me === "가위") || (computer === "가위" && me === "바위") || (computer === "바위" && me === "보")){
+    alert("이김")
+  }else if
+  ((computer === "가위" && me === "보") || (computer === "보" && me === "바위") || (computer === "바위" && me === "가위")){
+    alert("짐")
+}
+
+//switch문
+//[switch]([값]) {
+//  실행코드의 내용을 작성하는데
+//    case[값에 따른 조건]:
+//  case [값에 따른 조건]:
+//  case [값에 따른 조건]:
+//  break; // 코드를 중단
+// return; // 값을 반환한다.
+//}
+
+switch(0) {
+  case 0 : 
+      console.log("0의 값이 들어왔다.");
+      break;
+  case 1 : 
+      console.log("1의 값이 들어왔다.");
+  case 2 : 
+      console.log("2의 값이 들어왔다.");
+}
+
+
+
+</script>
+</html>

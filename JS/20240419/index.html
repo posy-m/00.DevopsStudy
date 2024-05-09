@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+function createCookie(name, value, time) {
+  // 썩은 쿠키는 유효하지 않다.
+  // 시간을 넣지 않고 쿠키를 생성하면 세션 쿠키 지속 계속 되는 쿠키
+  let date = new Date();
+  // 밀리세컨드로 시간을 증가된 값으로 만들어서
+  // 1000 === 1초
+
+  // 1일 이후의 시간을 만들면
+  // time === 일단위
+  // time === 2면 2일
+  date.setTime(date.getTime() + time * 24 * 60 * 60 * 1000);
+  // toUTCString 표준시 시간 표시 메서드
+  document.cookie = name + "=" + value + ";" + "expires=" + date.toUTCString() + ";" + "path=/"
+}
+
+  createCookie("devops4", 789, 1);
+  console.log(document.cookie); 
+
+  //문자열을 짤라서 가져오는 함수를 만들자.
+  function getcookie(name) {
+    //trim === 공백 제거 메서드 문자열에 잇는 공백 제거
+    // split === 전달한 인자의 문자열마다 배열로 잘라서 형변환 
+    // [devops2 = 123, devope3=123]
+    let arr = document.cookie.trim().split(";");
+    let result = undefined;
+    for(let i = 0; i< arr.length; i++) {
+      //[devops2, 123]
+      //[devops3, 123]
+      arr[i] = arr[i].split("=");
+      if(arr[i][0].trim() === name){
+        result=arr[i][1];
+      }
+      
+    }
+    console.log(result);
+    // return result; 이렇게 써도됨!
+  }
+  getcookie("devops4")
+
+  // 쿠키를 제거하는 방법  : 쿠키의 유효시간을 과거 시간으로 주는 게 쿠키 제거
+  // 쿠키를 수정하는 방법은 쿠키의 캍은 키로 값을 주면 있던 쿠키가 값이 변경된다. 
+
+
+</script>
+</html>

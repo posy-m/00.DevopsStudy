@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./public/css/stlye.css">
+</head>
+<body>
+  <!-- 탭을 만들고 탭이 전환되는 방식을 슬라이드 방식으로 만들어보자.
+    인터렉션 구현 부분을 작성.
+  컨토롤 + 알트 누르고 키보드 위아래 방향키 : 여러줄 선택
+  쉬프트 + 알트 누르고 키보드 위아래 방향키 : 줄 복사
+  컨트롤 + 쉬프트 누르고 키보드 위아래 방향키 : 드래그 선택
+  컨트롤 + D 누를때 마다 같은 문자 선태 -->
+
+  <div id="tab">
+    <input type="radio" id="tab1" name="tabmenu" checked>
+    <label for="tab1">버튼 1</label>
+    <input type="radio" id="tab2" name="tabmenu">
+    <label for="tab2">버튼 2</label>
+    <input type="radio" id="tab3" name="tabmenu">
+    <label for="tab3">버튼 3</label>
+
+    <div class="box con1">버튼 1에 대한 화면</div>
+    <div class="box con3">버튼 2에 대한 화면</div>
+    <div class="box con3">버튼 3에 대한 화면</div>
+  </div>
+
+</body>
+</html>

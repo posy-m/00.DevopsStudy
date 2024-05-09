@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+    <button onclick="bo()">클릭해보시오</button>
+    <div class="btn"></div>
+</body>
+
+<script>
+// 랜덤한 숫자를 버튼을 클릭할때 배열에 추가하면서 화면에 출력하세요.
+let a = [];
+let plus = document.querySelector(".btn")
+
+function bo () {
+  let c = document.createElement('div')
+  b()
+  c.innerHTML = a
+  plus.append(c)
+}
+
+let b = function(){
+  let ic = parseInt(Math.random()*50);
+  a.push(ic)
+}
+
+
+</script>
+</html>

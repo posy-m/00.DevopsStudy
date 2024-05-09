@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 400px;
+      height: 800px;
+      border: 1px solid;
+      display: flex;
+      flex-direction: column;
+    }
+    .item {
+      width: 100%;
+      height: 100%;
+      background-color: blue;
+    }
+    .box {
+      width: 400px;
+      height: 200px;
+      border: 1px solid red;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <!-- 드래그할 요소 draggable : 요소의 드래그 속성을 허용할 것인가? -->
+      <div class="item" draggable="true"></div>
+    </div>
+    <div class="box">
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+  
+</body>
+<script>
+  //_target : 드래그 하고 있는 요소를 담을 것. 
+  let _target = null;
+  // document 웹페이지에서 드래그가 시작되면
+  document.ondragstart = (e) => {
+    // console.log(e.target)
+    //드래그 시작할때 내가 원하는 요소가 맞는지?
+    if(e.target.classList.contains("item")){
+      // console.log("item 요소가 드래그됨")
+      _target = e.target;
+      console.log(_target);
+      // _target.style 요소의 스타일 속성에 접근
+      // background-color -> backgroundColor - 부분 뒤의 구문이 대문자로 한자리만 변환 되면 된다.
+      _target.style.backgroundColor = "red"; 
+    }
+  }
+
+  document.ondragend = (e) => {
+    if(e.target.classList.contains("item")){
+      //드래그를 끝났을때 
+      _target.style.backgroundColor = "blue";
+      _target = null;
+    }
+  }
+
+  // 드래그르 하면서 어떤 요소의 위에 마우스가 올라왔을때
+  document.ondragenter =(e) => {
+    if(e.target.classList.contains("box") && _target !== null){
+      e.target.style.backgroundColor = "blue"
+    }
+  }
+
+  //드래그를 하다가 마우스가 요소 밖으로 나가면
+  document.ondragleave = (e) => {
+    if(e.target.classList.contains("box") && _target !==null){
+      e.target.style.backgroundColor ="transparent"
+    }}
+
+    //드래그 드롭
+    // 드래그 드롭이 가능한 요소인지 여부 설정
+    //ondragover 체크를 한번 하고 drop 의 이벤트를 사용할 수 있다.
+    document.ondragover = (e) => {
+      if(e.target.classList.contains("box") && _target !==null) {
+        e.preventDefault(); // 브라우저가 적용하는 기본동작을 방지하는 역할
+        //브라우저의 기본 드랍 속성을 제거한다.
+      }
+    }
+
+    //ondrop : 드래그를 하다가 요소의 위에에서 마우슬 땠을때 
+    document.ondrop = (e) => {
+      if(e.target.classList.contains("box") && _target !== null) {
+        e.target.style.backgroundColor="transparent";
+        e.target.append(_target);
+      }
+    }
+</script>
+</html>

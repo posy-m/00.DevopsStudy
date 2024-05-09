@@ -1,0 +1,250 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* * {
+  margin: 0 auto;
+} */
+
+#main {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 상단 영역 */
+#top-box {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#top-box > .top-top {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#top-box > .top1 {
+  display: flex;
+  align-self: start;
+  font-size: 12px;
+  margin: 20px; 
+  left: 40px;
+  width: 10px; 
+}
+
+#top-box > .top-top > .top1 {
+  margin: 15px;
+}
+
+.top2 {
+  display: flex;
+  align-items: center;
+}
+
+.top2 > img {
+  width: 24px;
+  height: 24px s;
+}
+
+.top2 > span {
+  margin-right: 10px; 
+}
+
+/* #top-box > .top-top2 > .top2 {
+  width: 200px;
+} */
+
+
+#top-box2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 70px;
+  margin: auto;
+  font-size: 20px;
+}
+
+#top-box2 > .meddle1 {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+}
+
+
+
+
+#top-box2 > .meddle2 {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+}
+
+
+#top-box3 {
+  width: 100%;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#top-box3 > .game {
+  display: block;
+  font-size: 14px;
+}
+
+.game > .top-middle2 h2 {
+  margin: 10px 0 10px 0;
+}
+
+#top-box3 > .game1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#top-box3 .game1 > .top-middle4 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  padding: 1rem;
+  display: block;
+  font-size: 14px;
+  margin: 3px;
+  background-color: blueviolet;
+  border-radius: 40px;
+  color: white;
+}
+
+#top-box4 {
+  width: 90%;
+  margin: auto;
+  /* margin: 30px; */
+}
+
+#top-box4 input {
+  display: none;
+}
+
+#top-box4 label {
+  cursor: pointer;
+  margin-right: 10%;
+}
+
+#top-box4 label:hover {
+  color: blueviolet;
+}
+
+/* 커리큘럼 */
+
+#section1 {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+
+#section1 > .blue {
+  color: blue;
+  font-size: 25px;
+  font-weight: 900;
+  margin: 10px 0px;
+}
+
+.immoon {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0px;
+}
+
+.content {
+  background-color: rgb(228, 228, 228);
+  margin: 20px 0px;
+  padding: 5px;
+}
+
+.content div {
+  margin: 10px;
+  border-bottom: 1px solid #efefef;
+}
+
+/* Q&A */
+
+#section2 {
+  margin: auto;
+  width: 90%;
+}
+
+#section2 > .blue2 {
+  color: blue;
+  font-size: 25px;
+  font-weight: 900;
+  margin: 5px 0px;
+}
+
+#section2 > .QnA > .con2 {
+  margin: 30px 0px 0px;
+}
+
+
+#section2 > .QnA > .con3 {
+  margin: 40px 0px;
+}
+
+#section2 > .QnA > .content2 h3{
+  margin: 15px;
+}
+
+#section2 > .QnA > .content2 p{
+  margin: 15px;
+}
+
+/* footer */
+
+#section3 {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(207, 207, 207);
+}
+
+#section3 > .main5 {
+  width: 800px;
+}
+
+#section3 > .logo img{
+  display: block;
+  width: 400px;
+  margin: 20px;
+}
+
+#section3 > .infomation {
+  width: 840px;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+
+.infomation > div {
+  margin: 20px;
+}
+
