@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,46 +11,46 @@
 <body>
   <!-- 첫번째 -->
   <span></span>
-<h2 id="header">
-  <ul class="border">
-    <li>
-      <span>인덱스</span>
-      <span>제목</span>
-      <span>내용</span>
-    </li>
-  </ul>
-</h2>
+  <h2 id="header">
+    <ul class="border">
+      <li>
+        <span>인덱스</span>
+        <span>제목</span>
+        <span>내용</span>
+      </li>
+    </ul>
+  </h2>
 
 
-<!-- 실습 3 -->
-<label for="">제목</label>
-<input type="text" id="title_input">
-<label for="">글내용</label>
-<!-- 글의 내용 줄내림이 필요한 내용을 작설할때 -->
-<textarea name="" id="content_input" cols="30" rows="10"></textarea>
-<button id=btn"">글 작성</button>
+  <!-- 실습 3 -->
+  <label for="">제목</label>
+  <input type="text" id="title_input">
+  <label for="">글내용</label>
+  <!-- 글의 내용 줄내림이 필요한 내용을 작설할때 -->
+  <textarea name="" id="content_input" cols="30" rows="10"></textarea>
+  <button id="btn">글 작성</button>
 
-<!-- 실습4 -->
-<label for="">제목</label>
-<input type="text" id="title_input01">
-<label for="">글내용</label>
-<!-- 글의 내용 줄내림이 필요한 내용을 작설할때 -->
-<textarea name="" id="content_input01" cols="30" rows="10"></textarea>
-<button onclick="hoho()" id=btn01"">글 작성</button>
+  <!-- 실습4 -->
+  <label for="">제목</label>
+  <input type="text" id="title_input01">
+  <label for="">글내용</label>
+  <!-- 글의 내용 줄내림이 필요한 내용을 작설할때 -->
+  <textarea name="" id="content_input01" cols="30" rows="10"></textarea>
+  <button onclick="hoho()" id="btn01">글 작성</button>
 
-<!-- 실습2 -->
+  <!-- 실습2 -->
 
-<h2 id="header1">
-  <ul class="border1">
-  </ul>
-</h2>
+  <h2 id="header1">
+    <ul class="border1">
+    </ul>
+  </h2>
 
-<!-- 실습1 -->
-<div>
-  <ul id =bobo>
-  <li>안녕 </li>
-  </ul>
-</div>
+  <!-- 실습1 -->
+  <div>
+    <ul id=bobo>
+      <li>안녕 </li>
+    </ul>
+  </div>
 
 
 
@@ -64,27 +65,27 @@
   header.append(el);
   // 데이터베이스의 내용을 받아서
   //DTO : 데이터를 우리가 사용할 형태로 변경해서 받아온다. **
-  let arr = [{index : 1, title : "제목1", content : '내용1'}, {index : 2, title : "제목2", content : '내용2'}]
+  let arr = [{ index: 1, title: "제목1", content: '내용1' }, { index: 2, title: "제목2", content: '내용2' }]
 
   //로그인 게시판  === 50
   // 이어서 하는 실습 4
-  function createContent(index, title, content) {}
-  function render() {}
+  function createContent(index, title, content) { }
+  function render() { }
 
   render();
-  
+
   function postContent() {
 
     let title = title_input.value;
     let _content = content_input.value;
     const content = {
-      index : arr.length + 1,
-      title : _title,
-      content : _content,
+      index: arr.length + 1,
+      title: _title,
+      content: _content,
     }
     arr.push(content);
   }
-  
+
 
 
   function createContent(index, title, content) {
@@ -104,22 +105,22 @@
     document.querySelector(".border").append(_li);
   }
 
-  createContent(2,'제목2', '내용2')
-  createContent(2,'제목2', '내용2')
-  createContent(2,'제목2', '내용2')
-  createContent(2,'제목2', '내용2')
+  createContent(2, '제목2', '내용2')
+  createContent(2, '제목2', '내용2')
+  createContent(2, '제목2', '내용2')
+  createContent(2, '제목2', '내용2')
 
   // 위에 내용을 다시 한번 더 다르게! 
   function render() {
-  let arr = [{index : 1, title : " 제목1", content : '내용1'}, 
-            {index : 2, title : " 제목2", content : '내용2'},
-            {index : 3, title : " 제목3", content : '내용3'} 
-            ]
-  for(let i = 0; i < arr.length; i++){
-    createContent(arr[i].index,arr[i].title,arr[i].content);
+    let arr = [{ index: 1, title: " 제목1", content: '내용1' },
+    { index: 2, title: " 제목2", content: '내용2' },
+    { index: 3, title: " 제목3", content: '내용3' }
+    ]
+    for (let i = 0; i < arr.length; i++) {
+      createContent(arr[i].index, arr[i].title, arr[i].content);
+    }
   }
-  }
-  
+
   render([{}]);
 
   // [{index : 1, title : "제목1", content : '내용1'},{},{}]
@@ -129,25 +130,26 @@
 
   // 실습2 간단한 실습 랜덥한 숫자를 6개 뽑아서 화면에 보여주자. 각각의 엘레멘탈 생성후 보여주기
   let _ul = document.querySelector(".border1")
-  for (let a = 0; a<6; a++) {
+  for (let a = 0; a < 6; a++) {
     let _li1 = document.createElement('li')
-    _li1.innerHTML=parseInt(Math.random() * 45); 
+    _li1.innerHTML = parseInt(Math.random() * 45);
     _ul.append(_li1) // _ul안에 _li1 자식으로 넣어줘!
   }
 
   //실습 4 랜덤한 숫자를 버튼을 클릭할때 번호를 추가하면서 화면에 출력하세요.
   let bin = [];
   let hoho = function () {
-    let big = parseInt(math.random()*45);
+    let big = parseInt(math.random() * 45);
     bin.push(big);
   }
 
 
 
 
-// 실습1
+  // 실습1
   console.log(bobo.innerHTML);
   bobo.innerHTML += "<li>하잉</li>"
 
-</script> 
+</script>
+
 </html>
