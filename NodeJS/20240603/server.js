@@ -15,3 +15,5 @@ server.on('connection', (client) => {
 server.listen(3000, () => {
   console.log('서버 대기 상태임');
 })
+
+console.log('test');
