@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>채팅창</div>
+  <div id="chat">
+
+  </div>
+  <div>
+    <label for="">입력창</label>
+    <input type="text" id="chatInput">
+    <button id="chatSubmit">보내기</button>
+  </div>
+
+</body>
+<script>
+  const socket = new WebSocket("ws://localhost:3000");
+
+  // socket이 message라는 이벤트가 호출 됐을때
+  // 서버측에서 send 메서드를 호출하면
+  // socket에 구독하고 있던 message이벤트에 전달한 콜백 함수가 실행된다.
+  socket.addEventListener("message", (event) => {
+    console.log(event.data);
+    chat.innerHTML += `<div>${event.data}</div>`
+  })
+
+  chatSubmit.onclick = () => {
+
+    socket.send(chatInput.value)
+  }
+
+
+</script>
+
+</html>

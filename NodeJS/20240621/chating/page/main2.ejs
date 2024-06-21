@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    * {
+      /* list-style: none; */
+    }
+
+    body {
+      height: 100vh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      border: 1px solid;
+    }
+
+    #login {
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #main {
+      display: none;
+    }
+
+    #message {
+      overflow: scroll;
+      max-height: 400px;
+    }
+
+    #send {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border: 1px solid;
+      box-sizing: border-box;
+      display: flex;
+    }
+
+    #send #msgInput {
+      border: 0;
+      box-sizing: border-box;
+      padding: 3px 6px;
+      width: 85%;
+    }
+
+    #send #sendBtn {
+      background-color: yellow;
+      border: none;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 15%;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="content">
+      <div>귀여눙 동물 카톡</div>
+      <div id="login">
+        <h1>로그인</h1>
+        <input type="text" id="username">
+        <button id="loginBtn">접속</button>
+      </div>
+      <div id="main">
+        <select name="" id="rooms">
+          <option value="삐약">병아리 방</option>
+          <option value="꽥">오리 방</option>
+          <option value="누나머해">준후 방</option>
+        </select>
+        <ul id="message"></ul>
+        <div id="send">
+          <input type="text" id="msgInput">
+          <button id="sendBtn">보내기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  let socket = null;
+  let room = "";
+  let name = "";
+  loginBtn.onclick = () => {
+    login.style.display = "none";
+    main.style.display = "block";
+    if (!socket)
+      socket = io.connect();
+
+    room = rooms.options[rooms.selectedIndex].value;
+    name = username.value
+    socket.emit("joinRoom", room, username.value);
+
+    //js에서 room이랑 name 순서대로 받음
+    socket.on("joinRoom", (room, name) => {
+      const li = document.createElement("li")
+      li.classList.add("join-text")
+      li.innerHTML = `${room}에 ${name}가 들어왔다.`
+      message.append(li);
+    })
+
+    //방에서 나가는거
+    socket.on("leaveRoom", () => {
+      const li = document.createElement("li")
+      li.classList.add("join-text")
+      li.innerHTML = `${room}에 ${name}가 나갔어....힝...드루와..`
+      message.append(li);
+    })
+
+    //채팅!!!!!!입력해서 글을 보내는거 상대방한테 보이게 방에 있는 사람한테 ((채팅))
+    socket.on("chat", (name, msg) => {
+      const li = document.createElement("li")
+      li.classList.add("join-text")
+      li.innerHTML = `${name} : ${msg}`;
+      message.append(li);
+    })
+  }
+
+  // onchange : 벨류 속성값이 있는애들만 사용 가능 / 벨류 값이 변하면 onchange가 실행
+  rooms.onchange = (e) => {
+    console.log(e.target.selectedIndex);
+    console.log(e.target.options);
+    console.log(e.target.options[e.target.selectedIndex]);
+    console.log(e.target.options[e.target.selectedIndex].value);
+
+    //방에서 나간거
+    // room === 이전방 (병아리)
+    socket.emit("leaveRoom", room, name)
+    room = e.target.options[e.target.selectedIndex].value
+    //다음방의 내용을 재할당 (오리)
+    socket.emit("joinRoom", room, name)
+  }
+
+  sendBtn.onclick = () => {
+    socket.emit("chat", room, name, msgInput.value);
+    msgInput.value = "";
+
+  }
+
+</script>
+
+</html>
