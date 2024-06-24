@@ -1,0 +1,21 @@
+.seat {
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.line {
+  display: flex;
+}
+
+
+/* 앉을 수 있는 자리 */
+.seat.enable {
+  background-color: gray;
+}
+
+/* 앉을 수 없는 자리 */
+.seat.disable {
+  background-color: blueviolet;
+}
